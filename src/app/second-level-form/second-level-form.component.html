@@ -1,0 +1,31 @@
+<div [formGroup]='secondLevelForm'>
+  <label for="nameSecondLevel">Second Level Name</label>
+  <input type="text" formControlName='name' id="nameSecondLevel">
+
+  <label for="dateSecondLevel">Second Level Date</label>
+  <input type="date" formControlName='date' id="dateSecondLevel">
+
+  <div formArrayName='secondLevelArray'>
+    <button class='btn btn-outline-primary' (click)='addSecondLevelArray()'>Add Second Level Array</button>
+    <div *ngFor="let item of secondLevelForm.controls.secondLevelArray.controls; let i=index">
+      <div [formGroupName]='i'>
+
+
+      <label for="stevenSecondLevel">Steven</label>
+      <input type="text" id="stevenSecondLevel" formControlName='steven'>
+      
+      <label for="campbellSecondLevel">Campbell</label>
+      <input type="text" id="campbellSecondLevel" formControlName='campbell'>
+
+      <label for="bruceSecondLevel">Bruce</label>
+      <input type="text" id="bruceSecondLevel" formControlName='bruce'>
+
+      <button *ngIf="secondLevelForm.controls.secondLevelArray.controls.length > 1" (click)="removeSecondLevelArray(i)">Remove</button>
+
+      </div>
+    </div>
+  </div>
+
+  <app-third-level-form></app-third-level-form>
+
+</div>

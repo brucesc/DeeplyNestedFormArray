@@ -1,0 +1,31 @@
+<form [formGroup]='parentForm'>
+  <div class="row">
+    <label for="firstLevel">First Level Control</label>
+    <input id="firstLevel" formControlName='firstLevel' type="text" class="form-control">
+  
+    <!-- formGroupName on app-second-level-form is not necessary as far as I can tell -->
+    <app-second-level-form formGroupName='secondLevelForm'></app-second-level-form>
+
+    <!-- <div formGroupName='testFromGroup'>
+
+      <label for="testOneFirstLevel">
+        Test One
+        <input type="text" id="testOneFirstLevel" formControlName='testOne'>
+      </label>
+
+      <label for="testTwoFirstLevel">
+        Test Two
+          <input type="text" id="testTwoFirstLevel" formControlName='testTwo'>
+        </label>
+
+        <label for="testThreeFirstLevel">
+          Test Three
+            <input type="text" id="testThreeFirstLevel" formControlName='testThree'>
+          </label>
+    </div> -->
+  </div>
+
+
+</form>
+<pre>{{ parentForm.value | json }}</pre>
+<pre>{{ parentForm.valid | json }}</pre>

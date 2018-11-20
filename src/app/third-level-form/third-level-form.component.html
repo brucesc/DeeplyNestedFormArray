@@ -1,0 +1,15 @@
+<div [formGroup]='thirdLevelForm'>
+  <button (click)="addThirdLevelArray()">Add Third Level Array</button>
+  <div formArrayName='thirdLevelArray'>
+    <div *ngFor="let item of thirdLevelForm.controls.thirdLevelArray.controls; let i=index">
+      <div [formGroupName]='i'>
+
+        <label for="testThirdLevelArray">Test</label>
+        <input type="text" id="testThirdLevelArray" formControlName='test'>
+
+        <button *ngIf="thirdLevelForm.controls.thirdLevelArray.controls.length > 1" (click)="removeThirdLevelArray(i)">Remove</button>
+
+      </div>
+    </div>
+  </div>
+</div>
